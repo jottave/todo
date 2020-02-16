@@ -33,14 +33,24 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  var newTaskCtrl = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("ToDo List"),
-        actions: <Widget>[
-          Icon(Icons.plus_one),
-        ],
+        title: TextFormField(
+          controller: newTaskCtrl,
+          keyboardType: TextInputType.text,
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 18,
+          ),
+          decoration: InputDecoration(
+            labelText: "New Task",
+            labelStyle: TextStyle(color: Colors.white),
+          ),
+        ),
       ),
       body: ListView.builder(
         itemCount: widget.items.length,
